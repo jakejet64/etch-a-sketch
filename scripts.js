@@ -27,4 +27,14 @@ function initializeBoard(){
     }
 }
 
+function resizeBoard(){
+    let newSize = prompt('Please enter the new grid size', '16');
+    while(isNaN(newSize) || newSize > 100 || newSize < 1){
+        newSize = prompt('Number must be valid integer between 1-100');
+    }
+    board.forEach(row => container.removeChild(row));
+    gridSize = newSize;
+    initializeBoard();
+}
+
 initializeBoard();
